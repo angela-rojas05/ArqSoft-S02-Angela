@@ -1,40 +1,158 @@
-﻿var uiTemporal = new Ahorcado.ConsolaUI(null);
+﻿// Menú principal
 
-string categoria = uiTemporal.PedirCategoria();
+Console.WriteLine("¿Qué juego quieres jugar?");
 
-var repositorio =
-    new Ahorcado.PalabrasEnMemoria(categoria);
+Console.WriteLine("  1 — Ahorcado");
 
-var motor =
-    new Ahorcado.MotorAhorcado(repositorio);
+Console.WriteLine("  2 — Viborita");
 
-var ui =
-    new Ahorcado.ConsolaUI(motor);
+Console.Write("Opción: ");
 
-Console.WriteLine("=== AHORCADO ===");
+var opcion = Console.ReadLine();
 
-while (!motor.Ganado() && !motor.Perdido())
+
+
+if (opcion == "1")
+
 {
-    ui.MostrarTablero();
 
-    char letra = ui.PedirLetra();
+    // --- LÓGICA DEL AHORCADO ---
 
-    if (motor.LetraYaUsada(letra))
+    var uiTemporal = new Ahorcado.ConsolaUI(null);
+
+    string categoria = uiTemporal.PedirCategoria();
+
+    var repositorio =
+        new Ahorcado.PalabrasEnMemoria(categoria);
+
+    var motor =
+        new Ahorcado.MotorAhorcado(repositorio);
+
+    var ui =
+        new Ahorcado.ConsolaUI(motor);
+
+    Console.WriteLine("=== AHORCADO ===");
+
+
+
+    while (!motor.Ganado() && !motor.Perdido())
+
     {
-        ui.MostrarMensaje("Ya usaste esa letra.");
-        continue;
+
+        ui.MostrarTablero();
+
+        char letra = ui.PedirLetra();
+
+
+
+        if (motor.LetraYaUsada(letra))
+
+        {
+
+            ui.MostrarMensaje("Ya usaste esa letra.");
+
+            continue;
+
+        }
+
+        motor.RegistrarLetra(letra);
+
     }
 
-    motor.RegistrarLetra(letra);
+
+
+    ui.MostrarTablero();
+
+
+
+    if (motor.Ganado())
+
+        ui.MostrarMensaje($"\n¡Ganaste! La palabra era: {motor.PalabraSecreta}");
+
+    else
+
+        ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
+
+
+
+    // Nota: El código original de 'PreguntarOtraVez' solo instanciaba
+
+    // pero no reiniciaba el bucle. Aquí se mantiene igual a tu fragmento.
+
+    if (ui.PreguntarOtraVez())
+
+    {
+
+        var nuevoMotor = new Ahorcado.MotorAhorcado(repositorio);
+
+        var nuevaUI = new Ahorcado.ConsolaUI(nuevoMotor);
+
+    }
+
 }
 
-ui.MostrarTablero();
+else if (opcion == "2")
 
-if (motor.Ganado())
 {
-    ui.MostrarMensaje($"\n¡Ganaste! La palabra era: {motor.PalabraSecreta}");
+
+    // --- LÓGICA DE LA VIBORITA ---
+
+    var motor = new Ahorcado.MotorViborita();
+
+    var ui = new Ahorcado.ConsolaUIViborita(motor);
+
+
+
+    Console.CursorVisible = false;
+
+
+
+    while (!motor.Ganado() && !motor.Perdido())
+
+    {
+
+        ui.MostrarTablero();
+
+        var tecla = ui.LeerTecla();
+
+
+
+        if (tecla == ConsoleKey.Q) break;
+
+
+
+        if (tecla != ConsoleKey.NoName)
+
+            motor.CambiarDireccion(tecla);
+
+
+
+        motor.Avanzar();
+
+        Thread.Sleep(150); // velocidad del juego
+
+    }
+
+
+
+    ui.MostrarTablero();
+
+    ui.MostrarMensaje(motor.Ganado()
+
+    ? "\n¡Ganaste! Llegaste a 10 puntos."
+
+    : "\nGame over.");
+
+
+
+    Console.CursorVisible = true;
+
 }
+
 else
+
 {
-    ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
+
+    Console.WriteLine("Opción no válida.");
+
 }
