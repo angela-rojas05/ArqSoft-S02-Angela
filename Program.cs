@@ -1,8 +1,15 @@
-﻿var repositorio = new Ahorcado.PalabrasEnMemoria();
+﻿var uiTemporal = new Ahorcado.ConsolaUI(null);
 
-var motor = new Ahorcado.MotorAhorcado(repositorio);
+string categoria = uiTemporal.PedirCategoria();
 
-var ui = new Ahorcado.ConsolaUI(motor);
+var repositorio =
+    new Ahorcado.PalabrasEnMemoria(categoria);
+
+var motor =
+    new Ahorcado.MotorAhorcado(repositorio);
+
+var ui =
+    new Ahorcado.ConsolaUI(motor);
 
 Console.WriteLine("=== AHORCADO ===");
 
@@ -30,11 +37,4 @@ if (motor.Ganado())
 else
 {
     ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
-}
-
-if (ui.PreguntarOtraVez())
-{
-    var nuevoMotor = new Ahorcado.MotorAhorcado(repositorio);
-
-    var nuevaUI = new Ahorcado.ConsolaUI(nuevoMotor);
 }
