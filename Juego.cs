@@ -87,6 +87,10 @@
             MostrarAhorcado();
 
             Console.WriteLine($"Intentos restantes: {_intentosRestantes}");
+            if (_intentosRestantes <= 3)
+            {
+                Console.WriteLine($"Pista: la palabra empieza con '{_palabraSecreta[0]}'");
+            }
             Console.WriteLine($"Letras usadas: {string.Join(", ", _letrasUsadas)}");
 
             Console.Write("Palabra: ");
