@@ -39,6 +39,26 @@
             return Console.ReadLine()[0];
         }
 
+        public string PedirCategoria()
+        {
+            Console.WriteLine("Selecciona una categoría:");
+            Console.WriteLine("1. Arquitectura");
+            Console.WriteLine("2. POO");
+            Console.WriteLine("3. .NET");
+
+            Console.Write("\nOpción: ");
+
+            string opcion = Console.ReadLine();
+
+            return opcion switch
+            {
+                "1" => "Arquitectura",
+                "2" => "POO",
+                "3" => ".NET",
+                _ => "Arquitectura"
+            };
+        }
+
         public void MostrarMensaje(string mensaje) =>
             Console.WriteLine(mensaje);
 
