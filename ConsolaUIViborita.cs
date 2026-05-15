@@ -52,7 +52,12 @@
 
                     {
 
-                        Console.Write("@"); // cabeza
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                        Console.Write("@");
+
+                        Console.ResetColor();
 
                     }
 
@@ -60,7 +65,12 @@
 
                     {
 
-                        Console.Write("o"); // cuerpo
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                        Console.Write("o");
+
+                        Console.ResetColor();
 
                     }
 
@@ -68,7 +78,12 @@
 
                     {
 
-                        Console.Write("*"); // comida
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+
+                        Console.Write("*");
+
+                        Console.ResetColor();
 
                     }
 
@@ -76,7 +91,9 @@
 
                     {
 
-                        Console.Write(" "); // vacío
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.Write(" ");
+                        Console.ResetColor();
 
                     }
 
