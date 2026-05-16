@@ -47,7 +47,7 @@ El proyecto fue dividido en varias clases para separar responsabilidades:
 
 # 📷 Capturas de pantalla
 
-## Menú principal
+![Menú principal](Captura de pantalla 2026-05-15 202008.png)
 
 
 
