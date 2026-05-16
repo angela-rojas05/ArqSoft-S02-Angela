@@ -47,15 +47,9 @@ El proyecto fue dividido en varias clases para separar responsabilidades:
 
 # 📷 Capturas de pantalla
 
-![Menú principal](Captura de pantalla 2026-05-15 202008.png)
-
-
-
-## Juego en ejecución
-
-
-## Ejemplo de victoria o derrota
-
+![Menú](menu.png)
+![Victoria](victoriagame.png)
+![Derrota](derrotagame.png)
 
 ---
 
