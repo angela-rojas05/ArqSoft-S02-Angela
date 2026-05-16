@@ -70,6 +70,7 @@ Durante el desarrollo de esta actividad se utilizaron herramientas de inteligenc
 
 # 📂 Contacto
 
-Hecho por: Ángela Yaritzi Rojas Brito
-Correo: angela.rojas@tecdesoftware.edu.mx
+- Hecho por: Ángela Yaritzi Rojas Brito
+- Correo: angela.rojas@tecdesoftware.edu.mx
+
 
