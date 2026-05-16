@@ -69,6 +69,9 @@ Durante el desarrollo del proyecto se aplicaron principios SOLID para mejorar la
 
 # 📷 Capturas de pantalla
 
+![Menú](menuviborita.png)
+![Victoria](victoriaviborita.png)
+![Derrota](derrotaviborita.png)
 
 ---
 
